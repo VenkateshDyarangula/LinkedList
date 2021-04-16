@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UC5_RemoveFirstNode
+namespace UC6_RemoveLastNode
 {
     class LinkedList
     {
@@ -68,6 +68,8 @@ namespace UC5_RemoveFirstNode
             }
             return head;
         }
+
+
         internal void Display()
         {
             Node temp = this.head;
@@ -90,21 +92,39 @@ namespace UC5_RemoveFirstNode
             this.head = this.head.next;
             return this.head;
         }
-        public static void Main(string[] args)
+        internal Node RemoveLastNode()
+        {
+            if (head == null)
+                return null;
+            if (head.next == null)
+                return null;
+            Node newNode = head;
+            while (newNode.next.next != null)
+            {
+                newNode = newNode.next;
+            }
+            newNode.next = null;
+            return head;
+        }
+        static void Main(string[] args)
         {
             LinkedList list = new LinkedList();
-            list.Add(50);
-            list.Add(20);
-            list.Add(16);
-            list.AddAtFirst(84);
-            list.AddAtFirst(11);
-            list.AddAtFirst(16);
-            list.InsertAtParticularPosition(2, 46);
+
+            list.Add(72);
+            list.Add(36);
+            list.Add(51);
+            list.AddAtFirst(60);
+            list.AddAtFirst(30);
+            list.AddAtFirst(54);
+            list.InsertAtParticularPosition(2, 20);
             list.Display();
-            Console.WriteLine("\nRemoving First node");
             list.RemoveFirstNode();
+            Console.WriteLine();
+            list.Display();
+            list.RemoveLastNode();
             Console.WriteLine();
             list.Display();
         }
     }
 }
+

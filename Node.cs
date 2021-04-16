@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UC5_RemoveFirstNode
+namespace UC6_RemoveLastNode
 {
     public class Node
     {
