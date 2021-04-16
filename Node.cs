@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UC2_AddToLinkedList
+namespace UC3_AddFirstPosition
 {
     public class Node
     {
