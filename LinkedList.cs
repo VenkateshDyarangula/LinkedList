@@ -1,11 +1,9 @@
 ﻿using System;
 
-namespace UC3_AddFirstPosition
+namespace UC4_InsertAtParticularPosition
 {
-    class LinkedList
-    {
-
-
+ class LinkedList
+ {
         internal Node head;
         internal void Add(int data)
         {
@@ -39,6 +37,36 @@ namespace UC3_AddFirstPosition
                 Console.WriteLine("{0} inserted into the linked list", node.data);
             }
         }
+
+        internal Node InsertAtParticularPosition(int position, int data)
+        {
+            if (position < 1)
+                Console.WriteLine("Invalid position");
+            if (position == 1)
+            {
+                var newNode = new Node(data);
+                newNode.next = this.head;
+                head = newNode;
+            }
+            else
+            {
+                Node temp = this.head;
+                while (position-- != 0)
+                {
+                    if (position == 1)
+                    {
+                        Node node = new Node(data);
+                        node.next = this.head.next;
+                        head.next = node;
+                        break;
+                    }
+                    temp = temp.next;
+                }
+                if (position != 1)
+                    Console.WriteLine("Position out of range");
+            }
+            return head;
+        }
         internal void Display()
         {
             Node temp = this.head;
@@ -50,19 +78,20 @@ namespace UC3_AddFirstPosition
             while (temp != null)
             {
                 Console.Write(temp.data + " ");
-                temp = temp.next; //temp=null
+                temp = temp.next;
             }
         }
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             LinkedList list = new LinkedList();
-
-            list.Add(60);
-            list.Add(84);
+            list.Add(70);
+            list.Add(30);
             list.Add(56);
-            list.AddAtFirst(94);
-            list.AddAtFirst(11);
-            list.AddAtFirst(46);
+            list.AddAtFirst(78);
+            list.AddAtFirst(30);
+            list.AddAtFirst(56);
+            Console.WriteLine("Inserting 47 at 2nd position");
+            list.InsertAtParticularPosition(2, 47);
             list.Display();
         }
     }
