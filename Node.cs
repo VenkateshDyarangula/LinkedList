@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LinkedList_all_
+namespace UC2_AddToLinkedList
 {
     public class Node
     {
