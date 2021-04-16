@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UC4_InsertAtParticularPosition
+namespace UC5_RemoveFirstNode
 {
     public class Node
     {
@@ -14,4 +14,3 @@ namespace UC4_InsertAtParticularPosition
         }
     }
 }
-    

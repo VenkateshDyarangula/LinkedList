@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace UC4_InsertAtParticularPosition
+namespace UC5_RemoveFirstNode
 {
- class LinkedList
- {
+    class LinkedList
+    {
         internal Node head;
         internal void Add(int data)
         {
@@ -53,6 +53,7 @@ namespace UC4_InsertAtParticularPosition
                 Node temp = this.head;
                 while (position-- != 0)
                 {
+
                     if (position == 1)
                     {
                         Node node = new Node(data);
@@ -60,7 +61,7 @@ namespace UC4_InsertAtParticularPosition
                         head.next = node;
                         break;
                     }
-                    temp = temp.next;
+                    temp = temp.next;//1000
                 }
                 if (position != 1)
                     Console.WriteLine("Position out of range");
@@ -81,17 +82,28 @@ namespace UC4_InsertAtParticularPosition
                 temp = temp.next;
             }
         }
+
+        internal Node RemoveFirstNode()
+        {
+            if (this.head == null)
+                return null;
+            this.head = this.head.next;
+            return this.head;
+        }
         public static void Main(string[] args)
         {
             LinkedList list = new LinkedList();
-            list.Add(70);
-            list.Add(30);
-            list.Add(56);
-            list.AddAtFirst(78);
-            list.AddAtFirst(30);
-            list.AddAtFirst(56);
-            Console.WriteLine("Inserting 47 at 2nd position");
-            list.InsertAtParticularPosition(2, 47);
+            list.Add(50);
+            list.Add(20);
+            list.Add(16);
+            list.AddAtFirst(84);
+            list.AddAtFirst(11);
+            list.AddAtFirst(16);
+            list.InsertAtParticularPosition(2, 46);
+            list.Display();
+            Console.WriteLine("\nRemoving First node");
+            list.RemoveFirstNode();
+            Console.WriteLine();
             list.Display();
         }
     }
