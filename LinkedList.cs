@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace UC6_RemoveLastNode
+namespace UC7_FindNodeWithValue
 {
-    class LinkedList
+    public class LinkedList
     {
         internal Node head;
         internal void Add(int data)
@@ -75,7 +75,7 @@ namespace UC6_RemoveLastNode
             Node temp = this.head;
             if (temp == null)
             {
-                Console.WriteLine("Linked list is empty");
+                //  Console.WriteLine("Linked list is empty");
                 return;
             }
             while (temp != null)
@@ -106,16 +106,33 @@ namespace UC6_RemoveLastNode
             newNode.next = null;
             return head;
         }
-        static void Main(string[] args)
+
+        public int Search(int value)
+        {
+            Node temp = head;
+            int count = 0;
+            while (temp != null)
+            {
+                count++;
+                if (temp.data == value)
+                {
+                    Console.Write("Value found at index:  " + count);
+                    return value;
+                }
+                temp = temp.next;
+            }
+            return 0;
+        }
+        public static void Main(string[] args)
         {
             LinkedList list = new LinkedList();
 
-            list.Add(72);
-            list.Add(36);
-            list.Add(51);
-            list.AddAtFirst(60);
+            list.Add(70);
+            list.Add(30);
+            list.Add(56);
+            list.AddAtFirst(70);
             list.AddAtFirst(30);
-            list.AddAtFirst(54);
+            list.AddAtFirst(56);
             list.InsertAtParticularPosition(2, 20);
             list.Display();
             list.RemoveFirstNode();
@@ -124,7 +141,9 @@ namespace UC6_RemoveLastNode
             list.RemoveLastNode();
             Console.WriteLine();
             list.Display();
+            Console.WriteLine();
+            int value = list.Search(30);
+            Console.WriteLine(" value =  " + value);
         }
     }
 }
-
